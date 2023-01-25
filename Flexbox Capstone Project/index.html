@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flexbox Capstone Project</title>
+
+  <script src="https://kit.fontawesome.com/02fbfb2ef2.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0px;
+      font-family: 'Righteous', cursive;
+    }
+
+    .navigator-bar {
+      background: rgb(75, 75, 231);
+    }
+
+    .navigator-bar div {
+      display: none;
+    }
+
+    .navigator-bar .toggle,
+    .navigator-bar .brand {
+      display: inline-block;
+    }
+
+    .navigator-bar .link {
+      display: block;
+      text-align: center;
+      padding: 1em;
+      text-decoration: none;
+      background: blue;
+      color: aliceblue;
+    }
+
+    .navigator-bar .link:hover,
+    .navigator-bar .link:active {
+      color: blue;
+      background: aliceblue;
+    }
+
+    .navigator-bar .toggle {
+      padding: 1em;
+      color: black;
+    }
+
+    .navigator-bar .brand {
+      width: 10em;
+      text-align: center;
+      padding: 1em;
+      color: aliceblue;
+    }
+
+
+    .navigator-bar a {
+      text-decoration: none;
+    }
+
+    @media (min-width:48em) {
+      .navigator-bar {
+        display: flex;
+      }
+
+      .navigator-bar div {
+        display: flex;
+      }
+
+      .navigator-bar .left-links {
+        display: flex;
+      }
+
+      .navigator-bar .right-links {
+        display: flex;
+        flex: 1;
+        justify-content: flex-end;
+      }
+
+      .navigator-bar .link {
+        width: auto;
+      }
+
+      .navigator-bar .toggle {
+        display: none;
+      }
+    }
+
+    @media (max-width:48em) {
+      .navigator-bar.active .toggle {
+        background: blue;
+        color: aliceblue;
+      }
+
+      .navigator-bar .brand {
+        text-align: left;
+      }
+
+      .navigator-bar.active div {
+        display: block;
+      }
+
+    }
+  </style>
+
+
+</head>
+<body>
+  <div class="navigator-bar">
+    <a href="#" class="toggle" id="navHamburguer">
+      <i class="fa-solid fa-bars"></i>
+    </a>
+    
+    <a href="#" class="brand">My brand</a>
+
+    <div class="left-links">
+      <a href="#" class="link">Link 1</a>
+      <a href="#" class="link">Link 2</a>
+    </div>
+
+    <div class="right-links">
+      <a href="#" class="link">Link 3</a>
+    </div>
+  </div>
+</body>
+
+<script>
+  const navHamburguer = document.querySelector('#navHamburguer');
+
+  navHamburguer.addEventListener('click', (e) => {
+    navHamburguer.parentElement.classList.toggle('active');
+  })
+</script>
+</html>
